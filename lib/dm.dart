@@ -33,7 +33,7 @@ class DMPage extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  "Tony Stark",
+                  "team 6",
                   style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
                 ),
                 Icon(Icons.keyboard_arrow_down,
@@ -137,14 +137,14 @@ class DMPage extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                     child: Text(
-                                      '    Oii \n mammooty..',
+                                      ' locked in',
                                       style: TextStyle(color: Colors.black),
                                     )),
                               ),
                             ],
                           ),
                           const SizedBox(height: 4),
-                          const Text('Indu Rabekka'),
+                          const Text('spongbob'),
                         ],
                       ),
                     ),
@@ -178,7 +178,7 @@ class DMPage extends StatelessWidget {
                             ],
                           ),
                           const SizedBox(height: 4),
-                          const Text('Ronaldo'),
+                          const Text('messi'),
                         ],
                       ),
                     ),
@@ -212,7 +212,7 @@ class DMPage extends StatelessWidget {
                             ],
                           ),
                           const SizedBox(height: 4),
-                          const Text('Tovino'),
+                          const Text('mohanlal'),
                         ],
                       ),
                     ),
@@ -239,14 +239,14 @@ class DMPage extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                     child: Text(
-                                      '    Stay \n   Positive..🥇',
+                                      '    Stay \n   negative🥇',
                                       style: TextStyle(color: Colors.black),
                                     )),
                               ),
                             ],
                           ),
                           const SizedBox(height: 4),
-                          const Text('Pranav'),
+                          const Text('kanye west'),
                         ],
                       ),
                     ),
@@ -274,7 +274,7 @@ class DMPage extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                     child: Text(
-                                      'Be Free🙎‍♂',
+                                      'i am not a clone🤣',
                                       style: TextStyle(color: Colors.black),
                                     )),
                               ),
@@ -316,7 +316,7 @@ class DMPage extends StatelessWidget {
                             ],
                           ),
                           const SizedBox(height: 4),
-                          const Text('Surya'),
+                          const Text('sumith'),
                         ],
                       ),
                     ),
@@ -377,11 +377,11 @@ class DMPage extends StatelessWidget {
                   backgroundImage: AssetImage('assets/4.png'),
                 ),
                 title: const Text(
-                  "A10",
+                  "homie",
                   style: TextStyle(color: Color.fromRGBO(0, 0, 0, 1)),
                 ),
                 subtitle: const Text(
-                  "Sent an attachment.5d",
+                  "Sent an attachment.1d",
                   style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1)),
                 ),
                 trailing: IconButton(
@@ -413,11 +413,11 @@ class DMPage extends StatelessWidget {
                   backgroundImage: AssetImage('assets/5.png'),
                 ),
                 title: const Text(
-                  "Mamooka",
+                  "haland",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 subtitle: const Text(
-                  "Liked a message.2w",
+                  "Liked a message.6w",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 trailing: IconButton(
@@ -432,11 +432,11 @@ class DMPage extends StatelessWidget {
                   backgroundImage: AssetImage('assets/6.png'),
                 ),
                 title: const Text(
-                  "Leo Messi",
+                  "joju",
                   style: TextStyle(color: Color.fromRGBO(255, 255, 255, 0.671)),
                 ),
                 subtitle: const Text(
-                  "Seen 2w ago",
+                  "Seen 4w ago",
                   style: TextStyle(color: Color.fromRGBO(255, 255, 255, 0.671)),
                 ),
                 trailing: IconButton(
@@ -451,7 +451,7 @@ class DMPage extends StatelessWidget {
                   backgroundImage: AssetImage('assets/9.png'),
                 ),
                 title: const Text(
-                  "Manju Warrier",
+                  "melbin",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 subtitle: const Text(
@@ -470,11 +470,11 @@ class DMPage extends StatelessWidget {
                   backgroundImage: AssetImage('assets/10.png'),
                 ),
                 title: const Text(
-                  "Shah Rukh Khan",
+                  "anyan",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 subtitle: const Text(
-                  "Sent a reel by zootopia.2w",
+                  "Sent a reel by cult.2w",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 trailing: IconButton(
@@ -489,7 +489,7 @@ class DMPage extends StatelessWidget {
                   backgroundImage: AssetImage('assets/hai.png'),
                 ),
                 title: const Text(
-                  "Unnikanan",
+                  "alin jose",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 subtitle: const Text(
@@ -508,11 +508,11 @@ class DMPage extends StatelessWidget {
                   backgroundImage: AssetImage('assets/profile3.png'),
                 ),
                 title: const Text(
-                  "Convincing Star",
+                  "heeeman",
                   style: TextStyle(color: Color.fromRGBO(255, 255, 255, 0.671)),
                 ),
                 subtitle: const Text(
-                  "Sent a reel by heyitsanto_.3w",
+                  "Sent a reel by demingo_.1d",
                   style: TextStyle(color: Color.fromRGBO(255, 255, 255, 0.671)),
                 ),
                 trailing: IconButton(
@@ -527,11 +527,11 @@ class DMPage extends StatelessWidget {
                   backgroundImage: AssetImage('assets/profile5.jpg'),
                 ),
                 title: const Text(
-                  "Mark Annan",
+                  "sucky",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 subtitle: const Text(
-                  "2 new messages.3w",
+                  "2 new messages.12w",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 trailing: IconButton(
@@ -546,7 +546,7 @@ class DMPage extends StatelessWidget {
                   backgroundImage: AssetImage('assets/profile4.jpg'),
                 ),
                 title: const Text(
-                  "Lal Uncle",
+                  "emil",
                   style: TextStyle(color: Color.fromRGBO(255, 255, 255, 0.671)),
                 ),
                 subtitle: const Text(
@@ -565,11 +565,11 @@ class DMPage extends StatelessWidget {
                   backgroundImage: AssetImage('assets/profile8.jpg'),
                 ),
                 title: const Text(
-                  "Sura",
+                  "gopela",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 subtitle: const Text(
-                  "🔥🐦‍🔥",
+                  "wo wo",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 trailing: IconButton(
@@ -584,11 +584,11 @@ class DMPage extends StatelessWidget {
                   backgroundImage: AssetImage('assets/profile10.jpg'),
                 ),
                 title: const Text(
-                  "Neymar",
+                  "marco",
                   style: TextStyle(color: Color.fromRGBO(255, 255, 255, 0.671)),
                 ),
                 subtitle: const Text(
-                  "Seen",
+                  "active now",
                   style: TextStyle(color: Color.fromRGBO(255, 255, 255, 0.671)),
                 ),
                 trailing: IconButton(
@@ -602,8 +602,8 @@ class DMPage extends StatelessWidget {
                   radius: 35,
                   backgroundImage: AssetImage('assets/profile2.jpg'),
                 ),
-                title: const Text("Melvin"),
-                subtitle: const Text("Active Now"),
+                title: const Text("debian"),
+                subtitle: const Text("Seen"),
                 trailing: IconButton(
                   onPressed: () {},
                   icon: const Icon(Icons.camera_alt_outlined,
@@ -616,7 +616,7 @@ class DMPage extends StatelessWidget {
                   backgroundImage: AssetImage('assets/profile13.jpeg'),
                 ),
                 title: const Text(
-                  "Virat Kohli",
+                  "sevin",
                   style: TextStyle(color: Color.fromRGBO(255, 255, 255, 0.671)),
                 ),
                 subtitle: const Text(
@@ -635,11 +635,11 @@ class DMPage extends StatelessWidget {
                   backgroundImage: AssetImage('assets/profile15.jpg'),
                 ),
                 title: const Text(
-                  "Pushpa",
+                  "despa",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 subtitle: const Text(
-                  "2 new messages",
+                  "4+ new messages",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 trailing: IconButton(

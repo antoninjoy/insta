@@ -10,6 +10,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<bool> likes = [false, false]; // For managing like states
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,6 +22,12 @@ class _HomePageState extends State<HomePage> {
           "assets/insta.png",
           height: 35,
           fit: BoxFit.contain,
+          errorBuilder: (context, error, stackTrace) {
+            return const Text(
+              "Add Image",
+              style: TextStyle(color: Colors.black, fontSize: 18),
+            );
+          },
         ),
         titleSpacing: 16, // Adds consistent padding from the left
         actions: [
@@ -40,6 +48,43 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
+      body: ListView(
+        children: [
+          // Horizontal Scrollable Story Avatars
+          SizedBox(
+            height: 100,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                _buildStoryAvatar("assets/th.jpg", "My story", Container()),
+                _buildStoryAvatar("assets/pro2.jpg", "jyothish", Container()),
+                _buildStoryAvatar("assets/to.jpg", "tom jose", Container()),
+                _buildStoryAvatar("assets/hr.jpg", "hari", Container()),
+                _buildStoryAvatar("assets/ad.jpg", "adwaith", Container()),
+                _buildStoryAvatar("assets/vm.jpg", "vishnu", Container()),
+              ],
+            ),
+          ),
+
+          // Posts
+          _buildPost(
+            postIndex: 0,
+            userImage: "assets/pro2.jpg",
+            postImage: "assets/jo.jpg",
+            username: "Jyothish",
+            location: "Kavalam",
+            caption: "Enjoying  a evening afternoon!",
+          ),
+          _buildPost(
+            postIndex: 1,
+            userImage: "assets/ad.jpg",
+            postImage: "assets/br.jpg",
+            username: "Adwaith",
+            location: "Chegannur",
+            caption: "Njn Barroz Mone!!!! ",
+          ),
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: 0,
         onTap: (index) {
@@ -48,8 +93,8 @@ class _HomePageState extends State<HomePage> {
         },
         selectedItemColor: Colors.black,
         unselectedItemColor: const Color.fromARGB(255, 66, 66, 66),
-        selectedIconTheme: IconThemeData(size: 24), // Smaller icon size
-        unselectedIconTheme: IconThemeData(size: 20),
+        selectedIconTheme: const IconThemeData(size: 24), // Smaller icon size
+        unselectedIconTheme: const IconThemeData(size: 20),
         showSelectedLabels: false,
         showUnselectedLabels: false,
         items: const [
@@ -75,6 +120,145 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildStoryAvatar(
+      String imagePath, String username, Widget? destinationScreen) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: Column(
+        children: [
+          GestureDetector(
+            onTap: destinationScreen != null
+                ? () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => destinationScreen),
+                    );
+                  }
+                : null,
+            child: CircleAvatar(
+              radius: 35,
+              backgroundImage: AssetImage(imagePath),
+              onBackgroundImageError: (_, __) {
+                debugPrint("Error loading image: $imagePath");
+              },
+              child: const Icon(Icons.person, color: Colors.grey),
+            ),
+          ),
+          const SizedBox(height: 5),
+          Text(
+            username,
+            style: const TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildPost({
+    required int postIndex,
+    required String userImage,
+    required String postImage,
+    required String username,
+    required String location,
+    required String caption,
+  }) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        ListTile(
+          leading: CircleAvatar(
+            backgroundImage: AssetImage(userImage),
+            onBackgroundImageError: (_, __) {
+              debugPrint("Error loading user image: $userImage");
+            },
+          ),
+          title: Text(username),
+          subtitle: Text(location),
+          trailing: const Icon(Icons.more_vert),
+        ),
+        Image.asset(
+          postImage,
+          fit: BoxFit.cover,
+          height: 300,
+          width: double.infinity,
+          errorBuilder: (context, error, stackTrace) {
+            return Container(
+              height: 300,
+              color: Colors.grey[300],
+              child: const Center(child: Text("Add Image")),
+            );
+          },
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            IconButton(
+              onPressed: () {
+                setState(() {
+                  likes[postIndex] = !likes[postIndex];
+                });
+              },
+              icon: Icon(
+                likes[postIndex]
+                    ? Icons.favorite
+                    : Icons.favorite_border_outlined,
+                color: likes[postIndex] ? Colors.red : Colors.black,
+              ),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.chat_bubble_outline),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.send),
+            ),
+          ],
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Text(
+            "Liked by user2 and others",
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+          child: RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: "$username ",
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+                TextSpan(
+                  text: caption,
+                  style: const TextStyle(color: Colors.black),
+                ),
+              ],
+            ),
+          ),
+        ),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.0),
+          child: Text(
+            "View all 5 comments",
+            style: TextStyle(color: Colors.grey),
+          ),
+        ),
+        const SizedBox(height: 16),
+      ],
     );
   }
 }
