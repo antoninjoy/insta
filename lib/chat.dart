@@ -30,7 +30,7 @@ class _chatState extends State<chat> {
             Navigator.pop(context); // Navigate back to the previous screen
           },
         ),
-        title: const Text("homie",
+        title: const Text("aswin",
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
         actions: [
           IconButton(
@@ -284,7 +284,8 @@ class _chatState extends State<chat> {
                 ),
               ),
               const BubbleSpecialThree(
-                text: '👍', // Thumbs up emoji from the sender
+                text:
+                    'oh deyyum i saw your ex', // Thumbs up emoji from the sender
                 color: Colors.blue,
                 tail: true,
                 isSender: true,
@@ -294,7 +295,7 @@ class _chatState extends State<chat> {
                 ),
               ),
               const BubbleSpecialThree(
-                text: '🎉', // Party emoji from the receiver
+                text: 'dont talk bout it', // Party emoji from the receiver
                 color: Color(0xFFE8E8EE),
                 tail: true,
                 isSender: false,
@@ -304,7 +305,7 @@ class _chatState extends State<chat> {
                 ),
               ),
               const BubbleSpecialThree(
-                text: '🌟', // Star emoji from the sender
+                text: 'hehe', // Star emoji from the sender
                 color: Colors.blue,
                 tail: true,
                 isSender: true,
@@ -314,7 +315,7 @@ class _chatState extends State<chat> {
                 ),
               ),
               const BubbleSpecialThree(
-                text: '❤️', // Heart emoji from the receiver
+                text: '💀', // Heart emoji from the receiver
                 color: Color(0xFFE8E8EE),
                 tail: true,
                 isSender: false,

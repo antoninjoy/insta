@@ -102,8 +102,8 @@ class _LoginPageState extends State<LoginPage> {
                       backgroundColor: Colors.blue,
                     ),
                     onPressed: () {
-                      if (username == "") {
-                        if (password == "") {
+                      if (username == "team6") {
+                        if (password == "1234") {
                           Navigator.push(
                             context,
                             MaterialPageRoute(

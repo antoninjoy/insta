@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/chat.dart';
 import 'package:instagram/dm.dart';
+import 'package:instagram/notification.dart';
+import 'package:instagram/search.dart';
+import 'package:instagram/settings.dart';
+import 'package:instagram/profile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -10,6 +14,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _currentIndex = 0;
   List<bool> likes = [false, false]; // For managing like states
 
   @override
@@ -32,7 +37,14 @@ class _HomePageState extends State<HomePage> {
         titleSpacing: 16, // Adds consistent padding from the left
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => NotificationPage(),
+                ),
+              );
+            },
             icon: const Icon(Icons.favorite_border_outlined),
           ),
           IconButton(
@@ -40,7 +52,7 @@ class _HomePageState extends State<HomePage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const InstagramDMPage(),
+                  builder: (context) => InstagramDMPage(),
                 ),
               );
             },
@@ -56,12 +68,12 @@ class _HomePageState extends State<HomePage> {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
-                _buildStoryAvatar("assets/th.jpg", "My story", Container()),
-                _buildStoryAvatar("assets/pro2.jpg", "jyothish", Container()),
-                _buildStoryAvatar("assets/to.jpg", "tom jose", Container()),
-                _buildStoryAvatar("assets/hr.jpg", "hari", Container()),
-                _buildStoryAvatar("assets/ad.jpg", "adwaith", Container()),
-                _buildStoryAvatar("assets/vm.jpg", "vishnu", Container()),
+                _buildStoryAvatar("assets/team6.png", "My story", Container()),
+                _buildStoryAvatar("assets/profile.jpg", "antonin", Container()),
+                _buildStoryAvatar("assets/p3.jpg", "aswin", Container()),
+                _buildStoryAvatar("assets/scotti.jpg", "alan", Container()),
+                _buildStoryAvatar("assets/p2.jpg", "ashil", Container()),
+                _buildStoryAvatar("assets/default.jpg", "junaid", Container()),
               ],
             ),
           ),
@@ -69,27 +81,49 @@ class _HomePageState extends State<HomePage> {
           // Posts
           _buildPost(
             postIndex: 0,
-            userImage: "assets/pro2.jpg",
-            postImage: "assets/jo.jpg",
-            username: "Jyothish",
-            location: "Kavalam",
-            caption: "Enjoying  a evening afternoon!",
+            userImage: "assets/profile.jpg",
+            postImage: "assets/adidas.jpg",
+            username: "antonin",
+            location: "anchal",
+            caption: "yolo!",
           ),
           _buildPost(
             postIndex: 1,
-            userImage: "assets/ad.jpg",
-            postImage: "assets/br.jpg",
-            username: "Adwaith",
-            location: "Chegannur",
-            caption: "Njn Barroz Mone!!!! ",
+            userImage: "assets/p2.jpg",
+            postImage: "assets/messi.jpg",
+            username: "ashil",
+            location: "thengana",
+            caption: "deyum! ",
           ),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0,
+        currentIndex: _currentIndex,
         onTap: (index) {
-          // Handle navigation between tabs
-          print("Tapped on index $index");
+          setState(() {
+            _currentIndex = index; // Update the selected tab
+          });
+
+          // Handle navigation for each button
+          if (index == 0) {
+            // Home
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const HomePage()),
+            );
+          } else if (index == 1) {
+            // Search
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const Search()),
+            );
+          } else if (index == 4) {
+            // Profile
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const Profile()),
+            );
+          }
         },
         selectedItemColor: Colors.black,
         unselectedItemColor: const Color.fromARGB(255, 66, 66, 66),
@@ -124,28 +158,21 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildStoryAvatar(
-      String imagePath, String username, Widget? destinationScreen) {
+      String imagePath, String username, Widget destinationScreen) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: Column(
         children: [
           GestureDetector(
-            onTap: destinationScreen != null
-                ? () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => destinationScreen),
-                    );
-                  }
-                : null,
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => destinationScreen),
+              );
+            },
             child: CircleAvatar(
               radius: 35,
               backgroundImage: AssetImage(imagePath),
-              onBackgroundImageError: (_, __) {
-                debugPrint("Error loading image: $imagePath");
-              },
-              child: const Icon(Icons.person, color: Colors.grey),
             ),
           ),
           const SizedBox(height: 5),
@@ -173,29 +200,21 @@ class _HomePageState extends State<HomePage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        // Post Header
         ListTile(
           leading: CircleAvatar(
             backgroundImage: AssetImage(userImage),
-            onBackgroundImageError: (_, __) {
-              debugPrint("Error loading user image: $userImage");
-            },
           ),
           title: Text(username),
           subtitle: Text(location),
           trailing: const Icon(Icons.more_vert),
         ),
+
         Image.asset(
           postImage,
           fit: BoxFit.cover,
           height: 300,
           width: double.infinity,
-          errorBuilder: (context, error, stackTrace) {
-            return Container(
-              height: 300,
-              color: Colors.grey[300],
-              child: const Center(child: Text("Add Image")),
-            );
-          },
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -223,13 +242,15 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
+        // Likes Count
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Text(
-            "Liked by user2 and others",
+            "Liked by aswin and others",
             style: const TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
+        // Caption
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
           child: RichText(
@@ -250,10 +271,11 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
+        // Comments Section
         const Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.0),
           child: Text(
-            "View all 5 comments",
+            "View all 44 comments",
             style: TextStyle(color: Colors.grey),
           ),
         ),

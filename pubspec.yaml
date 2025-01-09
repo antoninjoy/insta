@@ -62,6 +62,26 @@ flutter:
   assets:
   - assets/splash.jpg
   - assets/insta.png
+  - assets/ana.jpg
+  - assets/adidas.jpg
+  - assets/ana2.jpg
+  - assets/default.jpg
+  - assets/man.jpg
+  - assets/messi.jpg
+  - assets/rdr.jpg
+  - assets/SUPERMAN.jpg
+  - assets/scotti.jpg
+  - assets/socretis.jpg
+  - assets/p2.jpg
+  - assets/p3.jpg
+  - assets/profile.jpg
+  - assets/rayan.jpg
+  - assets/team6.png
+  - assets/junaid.jpg
+  - assets/clipper.jpg
+  - assets/tick.jpg
+  - assets/gosling.jpg
+  - assets/explore.jpg
      
 
   # An image asset can refer to one or more resolution-specific "variants", see
